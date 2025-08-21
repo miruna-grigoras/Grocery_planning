@@ -1,0 +1,39 @@
+/* Pagină login centrată cu gradient bej */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdf6e3 0%, #f2e1c2 100%);
+}
+
+.auth-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+.welcome-message h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5c4b3a;
+}
+
+.welcome-message .brand {
+  color: #d9772b;
+}
+
+.amplify-authenticator {
+  width: 100%;
+}

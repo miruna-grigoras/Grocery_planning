@@ -1,0 +1,48 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff8f0;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #ffa500;
+  box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+.account-section {
+  display: flex;
+  gap: 10px;
+}
+
+.account-btn,
+.signout-btn {
+  background-color: #ffb347;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.account-btn:hover,
+.signout-btn:hover {
+  background-color: #ffa500;
+}

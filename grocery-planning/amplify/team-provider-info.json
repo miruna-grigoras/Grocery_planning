@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-groceryplanning-dev-e179e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::501158680137:role/amplify-groceryplanning-dev-e179e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::501158680137:role/amplify-groceryplanning-dev-e179e-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-groceryplanning-dev-e179e-deployment",
+      "UnauthRoleName": "amplify-groceryplanning-dev-e179e-unauthRole",
+      "StackName": "amplify-groceryplanning-dev-e179e",
+      "StackId": "arn:aws:cloudformation:eu-central-1:501158680137:stack/amplify-groceryplanning-dev-e179e/3ea641b0-7a9e-11f0-ad70-0269823d4809",
+      "AmplifyAppId": "d3jre2zwbmnco0"
+    },
+    "categories": {
+      "auth": {
+        "groceryplanning0b9ebe8d": {}
+      }
+    }
+  }
+}
