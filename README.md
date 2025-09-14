@@ -54,7 +54,7 @@ aws configure sso --profile nowaste
 # Follow prompts: SSO start URL, SSO region, default region = eu-central-1
 aws sso login --profile nowaste
 aws sts get-caller-identity --profile nowaste
-
+```
 # `BACKLOG`
 ```markdown
 
