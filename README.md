@@ -17,7 +17,7 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 ## Features
 - Sign up / Sign in / Sign out via Cognito
 - Generate recipe from selected ingredients (Bedrock text model)
-- Save / Delete favourites (per user)
+- Save / Delete favourites (per user account)
 - “My Account” page: profile + change password (Cognito accounts)
 - Responsive, simple UI
 
