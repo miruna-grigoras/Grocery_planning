@@ -55,10 +55,25 @@ aws configure sso --profile nowaste
 aws sso login --profile nowaste
 aws sts get-caller-identity --profile nowaste
 
+```
 Pull the existing Amplify backend
+```bash
  npm i -g @aws-amplify/cli
  amplify pull --appId <APP_ID> --envName <ENV> --profile nowaste
 ```
+Hosting (publish the UI)
+```bash
+ amplify hosting add --profile nowaste
+# choose: Amazon CloudFront and S3 (or Managed Hosting)
+# index doc: index.html
+# error doc: index.html
+
+# whenever you want to deploy the latest build
+npm run build
+amplify publish --profile nowaste
+```
+
+
 # `BACKLOG`
 ```markdown
 
