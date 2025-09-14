@@ -21,8 +21,14 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 - “My Account” page: profile + change password (Cognito accounts)
 - Responsive, simple UI
 
-## Local development
-**Requirements:** Node 18+, Amplify CLI (`npm i -g @aws-amplify/cli`)
+
+## Prerequisites
+
+- **Node.js 18+** – check with `node -v`
+- **Git**
+- **AWS CLI v2** – <https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html>
+- **Amplify CLI** – `npm i -g @aws-amplify/cli`
+- An **AWS account** (or an **Amplify Studio invite**) from the owner
 
 1. Clone & install
    ```bash
@@ -38,13 +44,6 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 3.Run
    npm start
 
-## Prerequisites
-
-- **Node.js 18+** – check with `node -v`
-- **Git**
-- **AWS CLI v2** – <https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html>
-- **Amplify CLI** – `npm i -g @aws-amplify/cli`
-- An **AWS account** (or an **Amplify Studio invite**) from the owner
 
 # `BACKLOG`
 ```markdown
