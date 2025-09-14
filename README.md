@@ -54,6 +54,10 @@ aws configure sso --profile nowaste
 # Follow prompts: SSO start URL, SSO region, default region = eu-central-1
 aws sso login --profile nowaste
 aws sts get-caller-identity --profile nowaste
+
+Pull the existing Amplify backend
+ npm i -g @aws-amplify/cli
+ amplify pull --appId <APP_ID> --envName <ENV> --profile nowaste
 ```
 # `BACKLOG`
 ```markdown
