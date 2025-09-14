@@ -43,7 +43,17 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 
 3.Run
    npm start
+   
+## Configure AWS credentials locally
 
+
+
+### SSO (recommended in orgs)
+```bash
+aws configure sso --profile nowaste
+# Follow prompts: SSO start URL, SSO region, default region = eu-central-1
+aws sso login --profile nowaste
+aws sts get-caller-identity --profile nowaste
 
 # `BACKLOG`
 ```markdown
