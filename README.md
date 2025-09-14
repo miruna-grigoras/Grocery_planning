@@ -179,7 +179,7 @@ Reqs: R-UX
 
 
 
-## Risks & blockers
+# `Risks & blockers`
 
 Intermittent high latency from Bedrock (Titan) triggers fallback
 
