@@ -1,4 +1,4 @@
-# NoWaste – Recipe Helper
+# `NoWaste – Recipe Helper`
 
 Web app that suggests recipe ideas from available ingredients and lets users save favourites.  
 **Auth:** Amazon Cognito (Amplify) • **API:** API Gateway → Lambda (Python) • **DB:** DynamoDB
