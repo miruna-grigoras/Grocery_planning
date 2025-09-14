@@ -38,3 +38,53 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 3.Run
    npm start
 
+
+
+# `docs/BACKLOG.md` (prioritised)
+```markdown
+# Backlog 
+
+Legend: **P1 = must**, **P2 = should**, **P3 = could**.  
+Each item includes short acceptance criteria.
+
+## P1 – Must
+1. **User authentication (Cognito)**
+   - Email/password sign-up, email confirmation, sign-in, sign-out.
+   - *AC:* User can sign up, confirm email, sign in, sign out; tokens are stored by Amplify.
+
+2. **Generate recipe from ingredients**
+   - UI checklist + free-text add; call Lambda/Bedrock; show title + 6–8 steps.
+   - *AC:* Selecting ingredients and clicking *Generate* returns a coherent recipe in < 10 s.
+
+3. **Save to favourites**
+   - Persist recipe under `userSub + id` in DynamoDB.
+   - *AC:* After *Add to favourites*, the item is in DynamoDB and appears on refresh.
+
+4. **List & delete favourites**
+   - GET `/favorites`, DELETE `/favorites/{id}`.
+   - *AC:* Items are listed for the current user; delete removes the item.
+
+5. **My Account**
+   - Show email, userId (sub), provider; change password for Cognito user/pass accounts.
+   - *AC:* Data visible; change password works and shows friendly feedback.
+
+6. **Hosting**
+   - Publish with Amplify Hosting (S3 + CloudFront).
+   - *AC:* Public URL accessible; basic cache headers; CORS OK.
+
+## P2 – Should
+
+1. **My Account**
+   - Show email, userId (sub), provider; change password for Cognito user/pass accounts.
+   - *AC:* Data visible; change password works and shows friendly feedback.
+
+2. **Loading & error states**
+   - Skeleton or spinners; user-friendly error banners.
+   - *AC:* No raw stack traces; timeouts handled.
+
+
+## P3 – Could
+1. **Dark mode**
+    - Toggle with CSS variables.
+    - *AC:* Theme switch persists locally.
+
