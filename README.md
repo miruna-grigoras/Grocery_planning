@@ -140,3 +140,55 @@ P3 – Could
     - AC: Theme switch persists locally.
 
 ```
+# `Implementation Roadmap`
+
+## Goals & Scope
+- Deliver MVP: Auth, Recipe generator, Favourites, My Account, Hosting.
+
+## Assumptions
+- Region: eu-central-1; Bedrock model: amazon.titan-text-lite-v1;
+
+## Milestones
+
+### M1 — Core Platform (Week 1)
+Reqs: R-Auth, R-Gen
+- Tasks:
+  - Setup Cognito with Amplify Auth (R-Auth)  -`Miruna`
+  - Lambda + Bedrock call + JSON normalization (R-Gen) -`Miruna+Daria`
+- Acceptance: New user can sign in and generate recipe in < 10s. Logs visible.
+
+### M2 — Favourites & Account (Week 2)
+Reqs: R-Fav, R-Account
+- Tasks:
+  - DynamoDB table (PK userSub, SK id) + CRUD endpoints (GET/POST/DELETE) -`Miruna`
+  - “My Account” page + change password (Cognito-only) `Miruna+Daria`
+- Acceptance: Save/delete favourite; password change success states.
+
+### M3 — Hosting & Ops (Week 3)
+Reqs: R-Host, R-Obs, R-Budget
+- Tasks:
+  - Amplify Hosting (S3+CloudFront), CORS -`Miruna`
+- Acceptance: Public URL works end-to-end; budget alert tested.
+
+### M4 — Polish (Week 4)
+Reqs: R-UX
+- Tasks:
+ - Header/buttons polish, accessibility basics, docs completion-`Miruna`
+ - QA for testing-`Andra`
+- Acceptance: GETTING_STARTED works for a new dev in < 30 min.
+
+
+
+## Risks & blockers
+
+Intermittent high latency from Bedrock (Titan) triggers fallback
+
+**Observation:** Occasionally the `amazon.titan-text-lite-v1` model takes too long to respond. When the end-to-end request exceeds the UI timeout, the app shows the predefined fallback recipe. Refreshing/retrying a few times typically returns a correct recipe.
+
+**Impact:** Inconsistent UX, user confusion (“why did I get a generic recipe?”), and extra retries that may increase cost.
+
+**Likely causes:**
+- Model-side queueing or transient throttling in Bedrock.
+- Lambda cold starts / limited concurrency.
+- Large prompt size or high `MAX_TOKENS` → longer generation time.
+- API Gateway’s hard timeout (≈29s) combined with the UI timeout (30s).
