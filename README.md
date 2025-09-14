@@ -78,21 +78,14 @@ User (Browser) → React (Amplify Auth & UI) → API Gateway (JWT Authorizer) �
 → DynamoDB (favorites) | Bedrock Runtime (text model) → back to user
 
 Frontend (React): Amplify handles tokens; .env.local supplies REACT_APP_API_URL.
-
 Auth (Cognito User Pool): Email/password; JWT in Authorization: Bearer <id_token>.
 
 API (REST):
-
 POST /recipes – generate (body: {mode: "custom"|"daily", ingredients: [...]})
-
 GET /favorites – list
-
 POST /favorites – create
-
 DELETE /favorites/{id} – delete
-
 Lambda (Python): validates user, calls Bedrock model (Titan), normalizes JSON, stores/reads DynamoDB items.
-
 DynamoDB: favoritesTable
 ```
 
