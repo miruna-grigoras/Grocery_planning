@@ -40,9 +40,9 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 
 
 
-# `docs/BACKLOG.md` (prioritised)
+# `BACKLOG`
 ```markdown
-# Backlog 
+
 
 Legend: **P1 = must**, **P2 = should**, **P3 = could**.  
 Each item includes short acceptance criteria.
