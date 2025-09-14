@@ -1,4 +1,20 @@
 {
+  "api": {
+    "recipeapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "groceryplanning"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "groceryplanning0b9ebe8d": {
       "customAuth": false,
@@ -25,6 +41,62 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "groceryplanning": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "favoritesTable"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_groceryplanning_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "groceryplanning"
+        }
+      ]
+    },
+    "AMPLIFY_function_groceryplanning_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "groceryplanning"
+        }
+      ]
+    },
+    "AMPLIFY_function_groceryplanning_tableName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "groceryplanning"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "favoritesTable": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

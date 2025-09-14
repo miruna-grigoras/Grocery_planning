@@ -1,21 +1,32 @@
-import React from 'react';
-import './Header.css';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Header.css";
 
-function Header({ onSignOut }) {
+export default function Header({ onSignOut }) {
+  const navigate = useNavigate();
+
   return (
-    <header className="app-header">
-      <div className="logo">🍽️ RețeteDelicioase</div>
-      <input 
-        type="text" 
-        placeholder="Caută rețete..." 
-        className="search-bar"
-      />
-      <div className="account-section">
-        <button className="account-btn">My Account</button>
-        <button className="signout-btn" onClick={onSignOut}>Sign Out</button>
+    <header className="nw-header">
+      <div className="nw-header-inner">
+        {/* Brand centrat */}
+        <Link to="/" className="nw-brand" aria-label="Go to homepage">
+          <span className="nw-emoji" aria-hidden="true">🥗</span>
+          <span className="nw-title">NoWaste</span>
+        </Link>
+
+        {/* Butoane în dreapta */}
+        <div className="nw-actions" role="navigation" aria-label="Header actions">
+          <button
+            className="nw-btn outline"
+            onClick={() => navigate("/account")}
+          >
+            My Account
+          </button>
+          <button className="nw-btn solid" onClick={onSignOut}>
+            Sign Out
+          </button>
+        </div>
       </div>
     </header>
   );
 }
-
-export default Header;

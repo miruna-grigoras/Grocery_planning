@@ -1,47 +1,50 @@
+import React from "react";
+import "./App.css";
 
-import React from 'react';
-import './App.css';
+import { Amplify } from "aws-amplify";
+import { Authenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
 
-import { Amplify } from 'aws-amplify';
-import { Authenticator, withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-import awsExports from './aws-exports';
-import Header from './Header';
-import RecipesPage from './RecipesPage';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import awsExports from "./aws-exports";
+import Header from "./Header";           // butonul My Account -> <Link to="/account">
+import RecipesPage from "./RecipesPage"; // pagina ta principală
+import AccountPanel from "./AccountPanel"; // pagina cu datele contului + schimbare parolă
+
 Amplify.configure(awsExports);
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      {/* Authenticator gestionează întreg fluxul de autentificare */}
+    <BrowserRouter>
       <Authenticator>
-        {({ signOut, user }) => (
+        {({ user, signOut }) =>
           user ? (
-            
             <div className="main-page">
+              {/* Header primește doar onSignOut. My Account navighează la /account */}
               <Header onSignOut={signOut} />
-              <main style={{ padding: '2rem' }}>
-                <RecipesPage />
+
+              <main style={{ padding: "2rem" }}>
+                <Routes>
+                  <Route path="/" element={<RecipesPage />} />
+                  <Route path="/account" element={<AccountPanel />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
               </main>
             </div>
           ) : (
-           
             <div className="auth-page">
               <div className="auth-box">
                 <div className="welcome-message">
                   <h1>
-                    Bine ați venit la <span className="brand">NoWasteFood</span>
+                    Welcome to <span className="brand">NoWasteFood</span>
                   </h1>
                 </div>
-                {/* Formularul standard de autentificare al Amplify */}
               </div>
             </div>
           )
-        )}
+        }
       </Authenticator>
-    </div>
+    </BrowserRouter>
   );
 }
-
-export default withAuthenticator(App);

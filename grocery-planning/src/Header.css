@@ -1,48 +1,88 @@
-.app-header {
-  display: flex;
-  justify-content: space-between;
+/* Bară simplă, albă, cu border jos */
+.nw-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+
+.nw-header-inner {
+  position: relative;
+  height: 72px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+
+.nw-brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
   align-items: center;
-  background-color: #fff8f0;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.search-bar {
-  flex: 1;
-  margin: 0 2rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.search-bar:focus {
-  outline: none;
-  border-color: #ffa500;
-  box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
-}
-
-.account-section {
-  display: flex;
   gap: 10px;
+  text-decoration: none;
 }
 
-.account-btn,
-.signout-btn {
-  background-color: #ffb347;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+.nw-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.nw-title {
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.2px;
+  color: #111827;
+}
+
+/* Butoane în dreapta */
+.nw-actions {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+/* Stil butoane */
+.nw-btn {
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  border: 1px solid transparent;
   cursor: pointer;
-  font-weight: bold;
+  transition: all 150ms ease;
 }
 
-.account-btn:hover,
-.signout-btn:hover {
-  background-color: #ffa500;
+/* My Account (contur deschis) */
+.nw-btn.outline {
+  background: #fff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+.nw-btn.outline:hover {
+  background: #f9fafb;
+}
+
+/* Sign Out (închis) */
+.nw-btn.solid {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+.nw-btn.solid:hover {
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.18);
+}
+
+@media (max-width: 520px) {
+  .nw-title { font-size: 22px; }
+  .nw-btn { padding: 8px 12px; font-size: 13px; }
 }

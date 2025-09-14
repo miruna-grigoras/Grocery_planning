@@ -14,6 +14,44 @@
     "categories": {
       "auth": {
         "groceryplanning0b9ebe8d": {}
+      },
+      "function": {
+        "groceryplanning": {}
+      }
+    }
+  },
+  "mirunadev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-groceryplanning-mirunadev-a818b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::501158680137:role/amplify-groceryplanning-mirunadev-a818b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::501158680137:role/amplify-groceryplanning-mirunadev-a818b-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-groceryplanning-mirunadev-a818b-deployment",
+      "UnauthRoleName": "amplify-groceryplanning-mirunadev-a818b-unauthRole",
+      "StackName": "amplify-groceryplanning-mirunadev-a818b",
+      "StackId": "arn:aws:cloudformation:eu-central-1:501158680137:stack/amplify-groceryplanning-mirunadev-a818b/5f5832b0-8caa-11f0-9fa0-0a6360142cff",
+      "AmplifyAppId": "d3jre2zwbmnco0",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-groceryplanning-mirunadev-a818b-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "groceryplanning0b9ebe8d": {}
+      },
+      "function": {
+        "groceryplanning": {
+          "deploymentBucketName": "amplify-groceryplanning-mirunadev-a818b-deployment",
+          "s3Key": "amplify-builds/groceryplanning-753047794157637a514d-build.zip",
+          "tableName": "favoritesTable-mirunadev"
+        }
+      },
+      "api": {
+        "recipeapi": {}
+      },
+      "storage": {
+        "favoritesTable": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

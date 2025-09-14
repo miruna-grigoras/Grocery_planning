@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "resourceName": "recipeapi",
+  "paths": {
+    "/recipes": {
+      "lambdaFunction": "groceryplanning",
+      "permissions": {
+        "setting": "private",
+        "auth": ["create", "read", "update", "delete"]
+      }
+    },
+    "/favorites": {
+      "lambdaFunction": "groceryplanning",
+      "permissions": {
+        "setting": "private",
+        "auth": ["create", "read", "delete"]
+      }
+    }
+  },
+  "cors": true,
+  "corsConfig": {
+    "allowCredentials": false,
+    "allowHeaders": ["Content-Type", "Authorization"],
+    "allowMethods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"],
+    "allowOrigins": ["http://localhost:3000"],
+    "maxAge": 600
+  }
+}
