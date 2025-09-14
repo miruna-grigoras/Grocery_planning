@@ -73,6 +73,27 @@ npm run build
 amplify publish --profile nowaste
 ```
 
+Useful commands
+```bash
+# status & consoles
+amplify status
+amplify console auth|api|function|hosting --profile nowaste
+
+# update categories
+amplify update function        # env vars, permissions
+amplify update api             # routes, methods
+
+# add/remove categories
+amplify add <auth|api|function|storage|hosting>
+amplify remove <category>
+
+# deploy backend
+amplify push --profile nowaste
+
+# publish frontend
+npm run build
+amplify publish --profile nowaste
+```
 
 # `BACKLOG`
 ```markdown
