@@ -72,7 +72,7 @@ AWS_REGION=eu-central-1
 MODEL_ID=amazon.titan-text-lite-v1
 ```
 
-# `Architecture`
+# `ARHITECTURE`
 ```markdown
 User (Browser) → React (Amplify Auth & UI) → API Gateway (JWT Authorizer) → Lambda (Python)
 → DynamoDB (favorites) | Bedrock Runtime (text model) → back to user
