@@ -150,6 +150,7 @@ P3 – Could
 
 ## Milestones
 
+```bash
 ### M1 — Core Platform (Week 1)
 Reqs: R-Auth, R-Gen
 - Tasks:
@@ -178,7 +179,7 @@ Reqs: R-UX
 - Acceptance: GETTING_STARTED works for a new dev in < 30 min.
 
 
-
+```
 # `Risks & blockers`
 
 Intermittent high latency from Bedrock (Titan) triggers fallback
