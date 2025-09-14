@@ -30,48 +30,18 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 - **Amplify CLI** – `npm i -g @aws-amplify/cli`
 - An **AWS account** (or an **Amplify Studio invite**) from the owner
 
-1. Clone & install
-   ```bash
-   git clone https://github.com/<org-or-user>/<repo>.git
-   cd <repo>/grocery-planning
-   npm install
-2. Configure API URL
-   Create .env.local in the React app root:
-      amplify env add      # ex. "qa"
-      amplify push
-      https://g3doh0m91f.execute-api.eu-central-1.amazonaws.com/
-
-3.Run
-   npm start
-   
-## Configure AWS credentials locally
-
-
-
-### SSO (recommended in orgs)
+Amplify init / env
 ```bash
-aws configure sso --profile nowaste
-# Follow prompts: SSO start URL, SSO region, default region = eu-central-1
-aws sso login --profile nowaste
-aws sts get-caller-identity --profile nowaste
+amplify init
+amplify add auth
+amplify add function
+amplify add api
+amplify add storage
+amplify push
+amplify hosting add # choose "Amazon CloudFront and S3"
+amplify publish
+```
 
-```
-Pull the existing Amplify backend
-```bash
- npm i -g @aws-amplify/cli
- amplify pull --appId <APP_ID> --envName <ENV> --profile nowaste
-```
-Hosting (publish the UI)
-```bash
- amplify hosting add --profile nowaste
-# choose: Amazon CloudFront and S3 (or Managed Hosting)
-# index doc: index.html
-# error doc: index.html
-
-# whenever you want to deploy the latest build
-npm run build
-amplify publish --profile nowaste
-```
 
 Useful commands
 ```bash
@@ -93,6 +63,37 @@ amplify push --profile nowaste
 # publish frontend
 npm run build
 amplify publish --profile nowaste
+```
+
+Lambda (amplify update function → Environment variables):
+```bash
+TABLE_NAME=favoritesTable-<ENV>
+AWS_REGION=eu-central-1
+MODEL_ID=amazon.titan-text-lite-v1
+```
+
+# `Architecture`
+```markdown
+User (Browser) → React (Amplify Auth & UI) → API Gateway (JWT Authorizer) → Lambda (Python)
+→ DynamoDB (favorites) | Bedrock Runtime (text model) → back to user
+
+Frontend (React): Amplify handles tokens; .env.local supplies REACT_APP_API_URL.
+
+Auth (Cognito User Pool): Email/password; JWT in Authorization: Bearer <id_token>.
+
+API (REST):
+
+POST /recipes – generate (body: {mode: "custom"|"daily", ingredients: [...]})
+
+GET /favorites – list
+
+POST /favorites – create
+
+DELETE /favorites/{id} – delete
+
+Lambda (Python): validates user, calls Bedrock model (Titan), normalizes JSON, stores/reads DynamoDB items.
+
+DynamoDB: favoritesTable
 ```
 
 # `BACKLOG`
@@ -145,3 +146,4 @@ P3 – Could
     - Toggle with CSS variables.
     - AC: Theme switch persists locally.
 
+```
