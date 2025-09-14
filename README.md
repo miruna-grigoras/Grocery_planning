@@ -48,6 +48,7 @@ Legend: P1 = must, P2 = should, P3 = could.
 Each item includes short acceptance criteria.
 
    P1 – Must
+
 1. User authentication (Cognito)
    - Email/password sign-up, email confirmation, sign-in, sign-out.
    - AC: User can sign up, confirm email, sign in, sign out; tokens are stored by Amplify.
@@ -70,7 +71,7 @@ Each item includes short acceptance criteria.
 
 6. Hosting
    - Publish with Amplify Hosting (S3 + CloudFront).
-   - *AC:* Public URL accessible; basic cache headers; CORS OK.
+   - AC: Public URL accessible; basic cache headers; CORS OK.
 
    P2 – Should
 
@@ -84,6 +85,7 @@ Each item includes short acceptance criteria.
 
 
    P3 – Could
+
 1. Dark mode
     - Toggle with CSS variables.
     - AC: Theme switch persists locally.
