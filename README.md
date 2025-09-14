@@ -47,7 +47,7 @@ Web app that suggests recipe ideas from available ingredients and lets users sav
 Legend: P1 = must, P2 = should, P3 = could.  
 Each item includes short acceptance criteria.
 
-   P1 – Must
+P1 – Must
 
 1. User authentication (Cognito)
    - Email/password sign-up, email confirmation, sign-in, sign-out.
@@ -73,7 +73,7 @@ Each item includes short acceptance criteria.
    - Publish with Amplify Hosting (S3 + CloudFront).
    - AC: Public URL accessible; basic cache headers; CORS OK.
 
-   P2 – Should
+P2 – Should
 
 1. My Account
    - Show email, userId (sub), provider; change password for Cognito user/pass accounts.
@@ -84,7 +84,7 @@ Each item includes short acceptance criteria.
    - AC: No raw stack traces; timeouts handled.
 
 
-   P3 – Could
+P3 – Could
 
 1. Dark mode
     - Toggle with CSS variables.
